@@ -16,6 +16,10 @@
 		3D74E52D2BC6C2A5001B7CD8 /* sendbirdTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E52C2BC6C2A5001B7CD8 /* sendbirdTestTests.swift */; };
 		3D74E5372BC6C2A5001B7CD8 /* sendbirdTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E5362BC6C2A5001B7CD8 /* sendbirdTestUITests.swift */; };
 		3D74E5392BC6C2A5001B7CD8 /* sendbirdTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E5382BC6C2A5001B7CD8 /* sendbirdTestUITestsLaunchTests.swift */; };
+		3D74E5472BC6C30F001B7CD8 /* SendbirdUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3D74E5462BC6C30F001B7CD8 /* SendbirdUIKit */; };
+		3D74E5492BC6C50C001B7CD8 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E5482BC6C50C001B7CD8 /* InboxViewController.swift */; };
+		3D74E54B2BC6C57A001B7CD8 /* SendbirdChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E54A2BC6C57A001B7CD8 /* SendbirdChatClient.swift */; };
+		3D74E54D2BC6C62B001B7CD8 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74E54C2BC6C62B001B7CD8 /* UIView+Autolayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		3D74E5322BC6C2A5001B7CD8 /* sendbirdTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sendbirdTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D74E5362BC6C2A5001B7CD8 /* sendbirdTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendbirdTestUITests.swift; sourceTree = "<group>"; };
 		3D74E5382BC6C2A5001B7CD8 /* sendbirdTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendbirdTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3D74E5482BC6C50C001B7CD8 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		3D74E54A2BC6C57A001B7CD8 /* SendbirdChatClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendbirdChatClient.swift; sourceTree = "<group>"; };
+		3D74E54C2BC6C62B001B7CD8 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D74E5472BC6C30F001B7CD8 /* SendbirdUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				3D74E5152BC6C2A3001B7CD8 /* AppDelegate.swift */,
+				3D74E5482BC6C50C001B7CD8 /* InboxViewController.swift */,
+				3D74E54A2BC6C57A001B7CD8 /* SendbirdChatClient.swift */,
 				3D74E5172BC6C2A3001B7CD8 /* SceneDelegate.swift */,
+				3D74E54C2BC6C62B001B7CD8 /* UIView+Autolayout.swift */,
 				3D74E5192BC6C2A3001B7CD8 /* ViewController.swift */,
 				3D74E51B2BC6C2A3001B7CD8 /* Main.storyboard */,
 				3D74E51E2BC6C2A5001B7CD8 /* Assets.xcassets */,
@@ -143,6 +154,9 @@
 			dependencies = (
 			);
 			name = sendbirdTest;
+			packageProductDependencies = (
+				3D74E5462BC6C30F001B7CD8 /* SendbirdUIKit */,
+			);
 			productName = sendbirdTest;
 			productReference = 3D74E5122BC6C2A3001B7CD8 /* sendbirdTest.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +229,9 @@
 				Base,
 			);
 			mainGroup = 3D74E5092BC6C2A3001B7CD8;
+			packageReferences = (
+				3D74E5452BC6C30F001B7CD8 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */,
+			);
 			productRefGroup = 3D74E5132BC6C2A3001B7CD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D74E51A2BC6C2A3001B7CD8 /* ViewController.swift in Sources */,
+				3D74E54D2BC6C62B001B7CD8 /* UIView+Autolayout.swift in Sources */,
 				3D74E5162BC6C2A3001B7CD8 /* AppDelegate.swift in Sources */,
 				3D74E5182BC6C2A3001B7CD8 /* SceneDelegate.swift in Sources */,
+				3D74E54B2BC6C57A001B7CD8 /* SendbirdChatClient.swift in Sources */,
+				3D74E5492BC6C50C001B7CD8 /* InboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D74E5452BC6C30F001B7CD8 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-uikit-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.20.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D74E5462BC6C30F001B7CD8 /* SendbirdUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D74E5452BC6C30F001B7CD8 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios-spm" */;
+			productName = SendbirdUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D74E50A2BC6C2A3001B7CD8 /* Project object */;
 }
