@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainSceneRootViewController: UIViewController {
     private lazy var inboxViewController: InboxViewController = {
         let inboxViewController = InboxViewController(sendbirdChatClient: SendbirdChatClient())
         return inboxViewController

@@ -9,8 +9,11 @@ import UIKit
 
 final class InboxViewController: UIViewController {
     private let sendbirdChatClient: SendbirdChatClient
+    private let childNavigationController: UINavigationController
 
-    init(sendbirdChatClient: SendbirdChatClient) {
+    init(childNavigationController: UINavigationController = UINavigationController(),
+         sendbirdChatClient: SendbirdChatClient) {
+        self.childNavigationController = childNavigationController
         self.sendbirdChatClient = sendbirdChatClient
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,6 +25,24 @@ final class InboxViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendbirdChatClient.initialiseChatService()
+        
+        view.backgroundColor = .systemBackground
+
+        addChild(childNavigationController)
+        view.addAutoLayoutSubview(childNavigationController.view)
+        childNavigationController.view.pin(to: view)
+        childNavigationController.didMove(toParent: self)
+        
+        sendbirdChatClient.initialiseChatService() { [weak self] error in
+            guard let self else { return }
+            guard error == nil else {
+                print("drh: Error connecting to chat")
+                return
+            }
+            let chatListView = sendbirdChatClient.chatListViewController()
+            
+            self.childNavigationController.viewControllers = [chatListView]
+        }
     }
 }
+

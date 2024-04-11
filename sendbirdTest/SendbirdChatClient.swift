@@ -7,20 +7,44 @@
 
 import Foundation
 import SendbirdUIKit
+import UIKit
 
 final class SendbirdChatClient {
-    func initialiseChatService() {
-        let sendbirdAppId = "5ACE1D16-317A-4A14-A47D-6418AF5FF67B"
-            SendbirdUI.initialize(applicationId: sendbirdAppId) {
-                // Do something to display the start of the SendbirdUIKit initialization.
-            } migrationHandler: {
-                // Do something to display the progress of the DB migration.
-            } completionHandler: { error in
+    let sendbirdAppId = "your-app-id"
+
+    let accessToken = "your-access-token"
+    let currentUser = "your-username"
+
+    func initialiseChatService(completion: @escaping (Error?) -> ()) {
+        SBUGlobals.currentUser = SBUUser(userId: currentUser)
+        SBUGlobals.accessToken = accessToken
+    
+        SendbirdUI.initialize(applicationId: sendbirdAppId) {
+            // chat is initialising...
+        } migrationHandler: {
+            // migrations are happening here...
+        } completionHandler: { error in
+            if let error {
+                print("drh: failed to initalise sendbird: \(error)")
+                completion(error)
+                return
+            }
+            print("drh: initialised sendbird chat service")
+
+            SendbirdUI.connect { user, error in
                 if let error {
-                    print("drh: failed to initalise sendbird: \(error)")
+                    print("drh: failed to connect to chat: \(error)")
+                    completion(error)
                     return
                 }
-                print("drh: initialised sendbird chat service")
+                print("drh: connected to chat.")
+                completion(nil)
             }
+            
+        }
+    }
+    
+    func chatListViewController() -> SBUGroupChannelListViewController {
+        SBUGroupChannelListViewController()
     }
 }
